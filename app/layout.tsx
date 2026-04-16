@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: "Ruang Usaha — Coffee, Kos & Laundry",
   description:
     "Satu atap, tiga layanan. Coffee shop specialty, kos-kosan nyaman, dan laundry bersih. Ruang Usaha hadir untuk kebutuhan keseharian Anda.",
-  metadataBase: new URL("https://satusatu.id"),
+  metadataBase: new URL("https://cafesatusatu.vercel.app"),
   alternates: {
     canonical: "/",
   },
@@ -33,7 +33,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "id_ID",
     siteName: "Satu Satu",
-    url: "https://satusatu.id",
+    url: "https://cafesatusatu.vercel.app",
+    images: [
+      {
+        url: "/images/og-cover.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Kost, Laundry dan Cafe Satu Satu — Cilincing, Jakarta Utara",
+      },
+    ],
   },
   robots: {
     index: true,
@@ -53,7 +61,7 @@ const LOCAL_BUSINESS_JSONLD = {
   name: "Kost, Laundry dan Cafe Satu Satu",
   description:
     "Satu atap, tiga layanan. Coffee shop specialty, kos-kosan nyaman, dan laundry bersih.",
-  url: "https://satusatu.id",
+  url: "https://cafesatusatu.vercel.app",
   telephone: "",
   address: {
     "@type": "PostalAddress",
@@ -69,8 +77,8 @@ const LOCAL_BUSINESS_JSONLD = {
   sameAs: [
     "https://www.instagram.com/kost.satusatu",
   ],
-  image: "https://satusatu.id/images/og-cover.jpg",
-  "@id": "https://satusatu.id/#local-business",
+  image: "https://cafesatusatu.vercel.app/images/og-cover.jpeg",
+  "@id": "https://cafesatusatu.vercel.app/#local-business",
 };
 
 export default function RootLayout({

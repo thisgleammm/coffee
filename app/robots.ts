@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://satusatu.id/sitemap.xml",
+    sitemap: "https://cafesatusatu.vercel.app/sitemap.xml",
   };
 }
