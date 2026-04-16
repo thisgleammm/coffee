@@ -2,27 +2,32 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────
-   TAILWIND v4 — CSS-first theme tokens
+   TAILWIND v4 — @theme design tokens
    ───────────────────────────────────────── */
 @theme {
-  --color-primary: #f6e8bb;
-  --color-accent: #964233;
-  --color-surface: #ebdcb2;
-  --color-text-primary: #964233;
-  --color-text-secondary: #706547;
+  /* Brand palette */
+  --color-primary:   #f6e8bb;
+  --color-accent:    #964233;
+  --color-alt-black: #706547;
 
+  /* Surface scale */
+  --color-base:       #f6e8bb;
+  --color-surface:    #ebdcb2;
+  --color-surface-2:  #dfd1a9;
+
+  /* Typography */
   --font-display: "Bebas Neue", sans-serif;
   --font-body: "Poppins", system-ui, sans-serif;
 }
 
 /* ─────────────────────────────────────────
-   DESIGN TOKENS — Warm Indonesian Earth
+   DESIGN TOKENS — CSS custom properties
    ───────────────────────────────────────── */
 :root {
   /* Brand palette */
-  --color-primary:   #f6e8bb;   /* warm cream — dominant */
-  --color-accent:    #964233;   /* terracotta red — CTA, highlights */
-  --color-alt-black: #706547;   /* earthy brown-black — ambient text */
+  --color-primary:   #f6e8bb;
+  --color-accent:    #964233;
+  --color-alt-black: #706547;
 
   /* Surface scale (light earth) */
   --color-base:       #f6e8bb;
@@ -34,8 +39,8 @@
   --color-border-mid: rgba(150, 66, 51, 0.3);
 
   /* Text scale */
-  --color-text-primary:   #964233;           /* terracotta */
-  --color-text-secondary: #706547;           /* earthy brown */
+  --color-text-primary:   #964233;
+  --color-text-secondary: #706547;
   --color-text-muted:     rgba(150, 66, 51, 0.6);
 
   /* Service accent triad (unified) */
@@ -85,6 +90,103 @@ body {
   background: var(--color-base);
   color: var(--color-text-primary);
   font-family: "Poppins", system-ui, sans-serif;
+}
+
+/* ─────────────────────────────────────────
+   SCROLL-DRIVEN ANIMATIONS (CSS Native)
+   ───────────────────────────────────────── */
+@keyframes scroll-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-reveal-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scroll-reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scroll-reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Progressive enhancement: only apply if browser supports scroll-driven animations */
+@supports (animation-timeline: view()) {
+  .scroll-reveal {
+    animation: scroll-reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  .scroll-reveal-scale {
+    animation: scroll-reveal-scale linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+  }
+
+  .scroll-reveal-left {
+    animation: scroll-reveal-left linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  .scroll-reveal-right {
+    animation: scroll-reveal-right linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  /* Staggered product card reveals */
+  .scroll-reveal-stagger:nth-child(1) { animation-range: entry 0% cover 25%; }
+  .scroll-reveal-stagger:nth-child(2) { animation-range: entry 5% cover 30%; }
+  .scroll-reveal-stagger:nth-child(3) { animation-range: entry 10% cover 35%; }
+  .scroll-reveal-stagger:nth-child(4) { animation-range: entry 15% cover 40%; }
+
+  .scroll-reveal-stagger {
+    animation: scroll-reveal-up linear both;
+    animation-timeline: view();
+  }
+}
+
+/* Fallback for browsers without scroll-driven animation support */
+.scroll-reveal-fallback {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+
+.scroll-reveal-fallback.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ─────────────────────────────────────────
@@ -554,7 +656,8 @@ body {
   .product-image-frame,
   .product-buy-link,
   .products-tab,
-  .products-tab::after {
+  .products-tab::after,
+  .scroll-reveal-fallback {
     transition: none;
   }
 
@@ -567,44 +670,20 @@ body {
     transform: none;
   }
 
-  .scroll-reveal {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
-/* ─────────────────────────────────────────
-   SCROLL-REVEAL — CSS-native scroll animations
-   ───────────────────────────────────────── */
-@keyframes scroll-reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(32px);
-  }
-  to {
+  /* Disable scroll-driven animations for reduced motion */
+  .scroll-reveal,
+  .scroll-reveal-scale,
+  .scroll-reveal-left,
+  .scroll-reveal-right,
+  .scroll-reveal-stagger {
+    animation: none;
     opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.scroll-reveal {
-  animation: scroll-reveal-up ease-out both;
-  animation-timeline: view();
-  animation-range: entry 0% cover 30%;
-}
-
-/* Fallback for browsers without animation-timeline */
-@supports not (animation-timeline: view()) {
-  .scroll-reveal {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: none;
   }
 
-  .scroll-reveal.is-visible {
+  .scroll-reveal-fallback {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 
@@ -758,11 +837,6 @@ body {
   background: var(--color-surface);
   overflow: hidden;
   transition: box-shadow var(--duration-mid) var(--ease-out-expo);
-}
-
-/* next/image fill needs a positioned inner container */
-.product-image-frame > img {
-  padding: 0.5rem;
 }
 
 .product-card:hover .product-image-frame {
@@ -990,170 +1064,170 @@ body {
   font-style: italic;
 }
 
-  .poppins-black-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    font-style: italic;
-  }
-  
-  /* ─────────────────────────────────────────
-     VISIT US (FOOTER) - Editorial Brutalist
-     ───────────────────────────────────────── */
-  .visit-section {
-    position: relative;
-    z-index: var(--z-top);
-    background: var(--color-base);
-    border-top: 1px solid var(--color-border-mid);
-    padding: var(--space-8) var(--space-8) var(--space-12);
-  }
-  
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* ─────────────────────────────────────────
+   VISIT US (FOOTER) - Editorial Brutalist
+   ───────────────────────────────────────── */
+.visit-section {
+  position: relative;
+  z-index: var(--z-top);
+  background: var(--color-base);
+  border-top: 1px solid var(--color-border-mid);
+  padding: var(--space-8) var(--space-8) var(--space-12);
+}
+
+.visit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.visit-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.visit-headline {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 0.9;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.visit-details {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  max-width: 28rem;
+  border-left: 2px solid var(--color-accent);
+  padding-left: var(--space-4);
+}
+
+.visit-address strong {
+  color: var(--color-text-primary);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+}
+
+.visit-cta-wrapper {
+  margin-top: var(--space-4);
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--color-accent);
+  padding: 0.5rem;
+  /* Brutalist shadow consistent with hero photo */
+  box-shadow: 16px 16px 0px rgba(150, 66, 51, 0.15);
+  background: var(--color-surface);
+}
+
+.map-iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Editorial map: matches the aesthetic entirely */
+  filter: grayscale(1) sepia(0.35) hue-rotate(-20deg) contrast(1.1) brightness(0.9);
+  transition: filter var(--duration-slow) ease;
+  border: none;
+}
+
+.map-wrapper:hover .map-iframe {
+  /* Reveals actual street colors on hover */
+  filter: grayscale(0) sepia(0) hue-rotate(0) contrast(1) brightness(1);
+}
+
+@media (max-width: 768px) {
   .visit-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
   }
-  
-  .visit-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-  }
-  
-  .visit-headline {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: clamp(4rem, 10vw, 8rem);
-    line-height: 0.9;
-    color: var(--color-text-primary);
-    letter-spacing: -0.01em;
-  }
-  
-  .visit-details {
-    font-family: "Poppins", sans-serif;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--color-text-muted);
-    max-width: 28rem;
-    border-left: 2px solid var(--color-accent);
-    padding-left: var(--space-4);
-  }
-  
-  .visit-address strong {
-    color: var(--color-text-primary);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    font-size: 1.125rem;
-  }
-  
-  .visit-cta-wrapper {
-    margin-top: var(--space-4);
-  }
-  
+
   .map-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    border: 1px solid var(--color-accent);
-    padding: 0.5rem;
-    /* Brutalist shadow consistent with hero photo */
-    box-shadow: 16px 16px 0px rgba(150, 66, 51, 0.15);
-    background: var(--color-surface);
+    box-shadow: 8px 8px 0px rgba(150, 66, 51, 0.15);
   }
-  
-  .map-iframe {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Editorial map: matches the aesthetic entirely */
-    filter: grayscale(1) sepia(0.35) hue-rotate(-20deg) contrast(1.1) brightness(0.9);
-    transition: filter var(--duration-slow) ease;
-    border: none;
-  }
-  
-  .map-wrapper:hover .map-iframe {
-    /* Reveals actual street colors on hover */
-    filter: grayscale(0) sepia(0) hue-rotate(0) contrast(1) brightness(1);
-  }
-  
-  @media (max-width: 768px) {
-    .visit-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-8);
-    }
-    
-    .map-wrapper {
-      box-shadow: 8px 8px 0px rgba(150, 66, 51, 0.15);
-    }
-  }
-  
-  /* ─────────────────────────────────────────
-     FOOTER BOTTOM STRIP (Socials & Copyright)
-     ───────────────────────────────────────── */
+}
+
+/* ─────────────────────────────────────────
+   FOOTER BOTTOM STRIP (Socials & Copyright)
+   ───────────────────────────────────────── */
+.footer-bottom-strip {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border-mid);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.footer-socials {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+}
+
+/* Hover typography underline effect (Editorial) */
+.social-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-mid) var(--ease-out-expo);
+}
+
+.social-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.footer-copyright {
+  font-family: "Poppins", sans-serif;
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
   .footer-bottom-strip {
-    margin-top: var(--space-8);
-    padding-top: var(--space-6);
-    border-top: 1px solid var(--color-border-mid);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-4);
-  }
-  
-  .footer-socials {
-    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
     gap: var(--space-6);
+    margin-top: var(--space-12);
   }
-  
-  .social-link {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    position: relative;
-    font-family: "Poppins", sans-serif;
-    color: var(--color-text-primary);
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: color var(--duration-fast) ease;
-  }
-  
-  /* Hover typography underline effect (Editorial) */
-  .social-link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-accent);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform var(--duration-mid) var(--ease-out-expo);
-  }
-  
-  .social-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-  
-  .footer-copyright {
-    font-family: "Poppins", sans-serif;
-    color: var(--color-text-secondary);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  
-  @media (max-width: 768px) {
-    .footer-bottom-strip {
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      gap: var(--space-6);
-      margin-top: var(--space-12);
-    }
-  }
+}

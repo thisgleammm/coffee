@@ -1,7 +1,6 @@
 import HeroSection from "./components/HeroSection";
 import CoffeeProducts from "./components/CoffeeProducts";
 import VisitUs from "./components/VisitUs";
-import ScrollRevealFallback from "./components/ScrollRevealFallback";
 
 export default function Home() {
   return (
@@ -9,7 +8,6 @@ export default function Home() {
       <HeroSection />
       <CoffeeProducts />
       <VisitUs />
-      <ScrollRevealFallback />
     </main>
   );
 }
