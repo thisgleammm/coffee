@@ -42,7 +42,8 @@ export default function VisitUs() {
             src={GOOGLE_MAPS_EMBED_URL}
             className="map-iframe"
             title="Lokasi Kost Laundry dan Cafe Satu Satu di Google Maps"
-            allowFullScreen={false}
+            allowFullScreen
+            allow="fullscreen"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             sandbox="allow-scripts allow-same-origin allow-popups"

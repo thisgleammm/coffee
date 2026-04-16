@@ -335,7 +335,6 @@ body {
 /* ── Headline block ── */
 .hero-headline-wrapper {
   overflow: hidden;
-  margin-bottom: var(--space-4);
 }
 
 .hero-headline {
@@ -468,6 +467,7 @@ body {
   align-items: center;
   gap: var(--space-3);
   flex-wrap: wrap;
+  margin-top: var(--space-3);
 }
 
 .cta-primary {
