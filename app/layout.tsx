@@ -19,15 +19,15 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "Ruang Usaha — Coffee, Kos & Laundry",
+  title: "Satu Satu — Coffee, Kos & Laundry",
   description:
-    "Satu atap, tiga layanan. Coffee shop specialty, kos-kosan nyaman, dan laundry bersih. Ruang Usaha hadir untuk kebutuhan keseharian Anda.",
+    "Satu atap, tiga layanan. Coffee shop specialty, kos-kosan nyaman, dan laundry bersih. Satu Satu hadir untuk kebutuhan keseharian Anda.",
   metadataBase: new URL("https://cafesatusatu.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Ruang Usaha — Coffee, Kos & Laundry",
+    title: "Satu Satu — Coffee, Kos & Laundry",
     description:
       "Satu atap, tiga layanan. Coffee shop specialty, kos-kosan nyaman, dan laundry bersih.",
     type: "website",

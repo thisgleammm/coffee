@@ -56,6 +56,11 @@ export default function HeroSection() {
           </h1>
         </div>
 
+        {/* Descriptive subtitle for SEO — location + service keywords */}
+        <p className="hero-descriptor descriptor-enter">
+          Coffee shop, kos-kosan, dan laundry dalam satu atap di Cilincing, Jakarta Utara.
+        </p>
+
         {/* CTA */}
         <div className="hero-cta-group">
           <a href="#layanan" className="cta-primary">
@@ -73,7 +78,7 @@ export default function HeroSection() {
       <div className="hero-image-wrapper">
         <Image
           src={currentImage}
-          alt={`Ruang Usaha layanan ${currentLabel.toLowerCase()}`}
+          alt={`Satu Satu layanan ${currentLabel.toLowerCase()}`}
           fill
           sizes="38vw"
           className={`hero-image ${isAnimatingOut ? "image-exit" : "image-enter"}`}

@@ -104,15 +104,35 @@ function ProductCard({ product }: { product: Product }) {
           <span className="product-price">{product.price}</span>
         </div>
         <p className="product-description">{product.description}</p>
-        <a
-          href={product.purchaseLink}
-          className="product-buy-link"
-          aria-label={`Beli ${product.name} online`}
-          rel="noopener noreferrer"
-        >
-          <span>Beli Online</span>
-          <ArrowUpRight size={16} strokeWidth={2} />
-        </a>
+        <div className="product-delivery-links">
+          <a
+            href={product.purchaseLink || "#"}
+            className="product-buy-link"
+            aria-label={`Beli ${product.name} di ShopeeFood`}
+            rel="noopener noreferrer"
+          >
+            <span>ShopeeFood</span>
+            <ArrowUpRight size={14} strokeWidth={2} />
+          </a>
+          <a
+            href={product.purchaseLink || "#"}
+            className="product-buy-link"
+            aria-label={`Beli ${product.name} di GrabFood`}
+            rel="noopener noreferrer"
+          >
+            <span>GrabFood</span>
+            <ArrowUpRight size={14} strokeWidth={2} />
+          </a>
+          <a
+            href={product.purchaseLink || "#"}
+            className="product-buy-link"
+            aria-label={`Beli ${product.name} di GoFood`}
+            rel="noopener noreferrer"
+          >
+            <span>GoFood</span>
+            <ArrowUpRight size={14} strokeWidth={2} />
+          </a>
+        </div>
       </div>
     </article>
   );
@@ -126,19 +146,12 @@ export default function CoffeeProducts() {
 
   return (
     <section className="products-section scroll-reveal" id="layanan" aria-label="Produk Kopi">
-      {/* Section header */}
       <div className="products-header">
         <div className="products-header-left scroll-reveal-left">
           <span className="products-eyebrow">Lini Produk</span>
           <h2 className="products-headline">
             KAMI<br />SAJIKAN.
           </h2>
-        </div>
-        <div className="products-header-right scroll-reveal-right">
-          <p className="products-tagline">
-            Setiap cangkir disiapkan dengan hati.
-            Setiap produk dirancang dengan teliti.
-          </p>
         </div>
       </div>
 

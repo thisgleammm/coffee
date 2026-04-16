@@ -1,5 +1,6 @@
 import HeroSection from "./components/HeroSection";
 import CoffeeProducts from "./components/CoffeeProducts";
+import LivingSection from "./components/LivingSection";
 import VisitUs from "./components/VisitUs";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <main>
       <HeroSection />
       <CoffeeProducts />
+      <LivingSection />
       <VisitUs />
     </main>
   );
