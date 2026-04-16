@@ -57,11 +57,11 @@ function RoomCard({ room }: { room: Room }) {
         <p className="product-description">{room.description}</p>
         <Link
           href={room.detailLink}
-          className="product-buy-link"
+          className="product-btn-primary"
           aria-label={`Lihat detail dan harga ${room.name}`}
         >
           <span>Lihat Detail & Harga</span>
-          <ArrowUpRight size={16} strokeWidth={2} />
+          <ArrowUpRight size={18} strokeWidth={2} />
         </Link>
       </div>
     </article>
@@ -78,12 +78,6 @@ export default function LivingSection() {
           <h2 className="products-headline">
             TEMPAT<br />TINGGAL.
           </h2>
-        </div>
-        <div className="products-header-right scroll-reveal-right">
-          <p className="products-tagline">
-            Kos eksklusif dengan sirkulasi cahaya alami.
-            Kenyamanan dan ketenangan ruang tinggal Anda adalah prioritas kami.
-          </p>
         </div>
       </div>
 

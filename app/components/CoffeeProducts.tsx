@@ -104,35 +104,7 @@ function ProductCard({ product }: { product: Product }) {
           <span className="product-price">{product.price}</span>
         </div>
         <p className="product-description">{product.description}</p>
-        <div className="product-delivery-links">
-          <a
-            href={product.purchaseLink || "#"}
-            className="product-buy-link"
-            aria-label={`Beli ${product.name} di ShopeeFood`}
-            rel="noopener noreferrer"
-          >
-            <span>ShopeeFood</span>
-            <ArrowUpRight size={14} strokeWidth={2} />
-          </a>
-          <a
-            href={product.purchaseLink || "#"}
-            className="product-buy-link"
-            aria-label={`Beli ${product.name} di GrabFood`}
-            rel="noopener noreferrer"
-          >
-            <span>GrabFood</span>
-            <ArrowUpRight size={14} strokeWidth={2} />
-          </a>
-          <a
-            href={product.purchaseLink || "#"}
-            className="product-buy-link"
-            aria-label={`Beli ${product.name} di GoFood`}
-            rel="noopener noreferrer"
-          >
-            <span>GoFood</span>
-            <ArrowUpRight size={14} strokeWidth={2} />
-          </a>
-        </div>
+
       </div>
     </article>
   );
@@ -179,6 +151,14 @@ export default function CoffeeProducts() {
         {products.map((product) => (
           <ProductCard key={product.name} product={product} />
         ))}
+      </div>
+
+      {/* Section bottom CTA */}
+      <div className="products-footer scroll-reveal" style={{ marginTop: "3rem", display: "flex", justifyContent: "center" }}>
+        <a href="#" className="cta-primary" aria-label="Pesan delivery online">
+          Pesan Delivery Online
+          <ArrowUpRight size={18} strokeWidth={2} style={{ marginLeft: "0.5rem" }} />
+        </a>
       </div>
     </section>
   );
