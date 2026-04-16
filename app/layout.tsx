@@ -57,8 +57,8 @@ const LOCAL_BUSINESS_JSONLD = {
   telephone: "",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Bekasi",
-    addressRegion: "Jawa Barat",
+    addressLocality: "Cilincing",
+    addressRegion: "Jakarta Utara",
     addressCountry: "ID",
   },
   geo: {

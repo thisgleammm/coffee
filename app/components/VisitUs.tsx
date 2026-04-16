@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 const GOOGLE_MAPS_EMBED_URL =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.1217594284885!2d106.93819119999999!3d-6.1143063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a21b17ac98757%3A0xf98ffc8f324b66f5!2sKost%2C%20Laundry%20dan%20Cafe%20Satu%20Satu!5e0!3m2!1sid!2sid!4v1776300877408!5m2!1sid!2sid";
 
-const MAPS_LINK = "https://maps.app.goo.gl/RuangUsahaSatuSatu";
+const MAPS_LINK = "https://maps.app.goo.gl/1jXCFtq7HiaDHvZd6";
 const WHATSAPP_LINK = "https://wa.me/";
 const INSTAGRAM_LINK = "https://www.instagram.com/kost.satusatu";
 const CURRENT_YEAR = new Date().getFullYear();
@@ -20,7 +20,7 @@ export default function VisitUs() {
           <div className="visit-details">
             <address className="visit-address" style={{ fontStyle: "normal" }}>
               <strong>Kost, Laundry &amp; Cafe<br />Satu Satu</strong><br /><br />
-              Bekasi, Jawa Barat, Indonesia<br /><br />
+              Cilincing, Jakarta Utara, Indonesia<br /><br />
               Kunjungi kami langsung untuk merasakan kenyamanan kopi, wangi cucian yang segar, dan hangatnya suasana kost kami.
             </address>
             <div className="visit-cta-wrapper">
