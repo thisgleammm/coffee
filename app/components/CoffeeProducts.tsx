@@ -12,6 +12,7 @@ interface Product {
   price: string;
   description: string;
   imagePath: string;
+  imageAlt: string;
   purchaseLink: string;
 }
 
@@ -27,6 +28,7 @@ const PRODUCTS_BY_CATEGORY: Record<ProductCategory, Product[]> = {
       price: "Rp 18.000",
       description: "Single origin, full body, crema tebal.",
       imagePath: "/images/products/espresso.png",
+      imageAlt: "Secangkir espresso single origin dengan crema tebal dari Satu Satu",
       purchaseLink: "#",
     },
     {
@@ -34,6 +36,7 @@ const PRODUCTS_BY_CATEGORY: Record<ProductCategory, Product[]> = {
       price: "Rp 25.000",
       description: "Espresso shot dengan steamed milk lembut.",
       imagePath: "/images/products/latte.png",
+      imageAlt: "Café latte dengan latte art dan steamed milk lembut dari Satu Satu",
       purchaseLink: "#",
     },
     {
@@ -41,6 +44,7 @@ const PRODUCTS_BY_CATEGORY: Record<ProductCategory, Product[]> = {
       price: "Rp 28.000",
       description: "Diseduh dingin 18 jam. Smooth, low acidity.",
       imagePath: "/images/products/coldbrew.png",
+      imageAlt: "Segelas cold brew kopi diseduh 18 jam dari Satu Satu",
       purchaseLink: "#",
     },
     {
@@ -48,6 +52,7 @@ const PRODUCTS_BY_CATEGORY: Record<ProductCategory, Product[]> = {
       price: "Rp 30.000",
       description: "Ceremonial grade matcha, oat milk.",
       imagePath: "/images/products/matcha.png",
+      imageAlt: "Matcha latte ceremonial grade dengan oat milk dari Satu Satu",
       purchaseLink: "#",
     },
   ],
@@ -57,6 +62,7 @@ const PRODUCTS_BY_CATEGORY: Record<ProductCategory, Product[]> = {
       price: "Rp 95.000",
       description: "Single origin Guatemala, 340g roasted beans.",
       imagePath: "/products/beans.png",
+      imageAlt: "Biji kopi single origin Guatemala 340g dari Satu Satu",
       purchaseLink: "#",
     },
     {
@@ -64,6 +70,7 @@ const PRODUCTS_BY_CATEGORY: Record<ProductCategory, Product[]> = {
       price: "Rp 120.000",
       description: "Tumbler 12oz, 360° lid, matte putih.",
       imagePath: "/products/tumbler.png",
+      imageAlt: "Tumbler matte putih 12oz merchandise Satu Satu",
       purchaseLink: "#",
     },
     {
@@ -71,6 +78,7 @@ const PRODUCTS_BY_CATEGORY: Record<ProductCategory, Product[]> = {
       price: "Rp 85.000",
       description: "Tote kanvas tebal, cocok untuk daily use.",
       imagePath: "/products/tote.png",
+      imageAlt: "Tote bag kanvas tebal merchandise Satu Satu",
       purchaseLink: "#",
     },
   ],
@@ -82,7 +90,7 @@ function ProductCard({ product }: { product: Product }) {
       <div className="product-image-frame">
         <Image
           src={product.imagePath}
-          alt={product.name}
+          alt={product.imageAlt}
           fill
           sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="product-image"

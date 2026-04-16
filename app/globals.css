@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* Fonts loaded via next/font/google in layout.tsx — self-hosted, no external requests */
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────
@@ -15,9 +15,9 @@
   --color-surface:    #ebdcb2;
   --color-surface-2:  #dfd1a9;
 
-  /* Typography */
-  --font-display: "Bebas Neue", sans-serif;
-  --font-body: "Poppins", system-ui, sans-serif;
+  /* Typography (resolved from next/font CSS variables) */
+  --font-display: var(--font-bebas), "Bebas Neue", sans-serif;
+  --font-body: var(--font-poppins), "Poppins", system-ui, sans-serif;
 }
 
 /* ─────────────────────────────────────────
@@ -89,7 +89,7 @@ body {
   min-height: 100%;
   background: var(--color-base);
   color: var(--color-text-primary);
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font-poppins), "Poppins", system-ui, sans-serif;
 }
 
 /* ─────────────────────────────────────────
@@ -341,7 +341,7 @@ body {
 .hero-headline {
   display: flex;
   flex-direction: column;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-bebas), "Bebas Neue", sans-serif;
   line-height: 0.92;
   letter-spacing: -0.01em;
 }
@@ -431,7 +431,7 @@ body {
   border: 1px solid var(--color-border-mid);
   background: transparent;
   color: var(--color-text-muted);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -478,7 +478,7 @@ body {
   border-radius: 4px;
   background: var(--color-accent);
   color: var(--color-primary);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -506,7 +506,7 @@ body {
   align-items: center;
   gap: 0.5rem;
   color: var(--color-text-secondary);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   text-decoration: none;
@@ -563,14 +563,14 @@ body {
 }
 
 .service-index-number {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-bebas), "Bebas Neue", sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
 }
 
 .service-index-label {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.15em;
@@ -709,7 +709,7 @@ body {
 
 .products-eyebrow {
   display: block;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -719,7 +719,7 @@ body {
 }
 
 .products-headline {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-bebas), "Bebas Neue", sans-serif;
   font-size: clamp(4rem, 10vw, 8rem);
   line-height: 0.9;
   color: var(--color-text-primary);
@@ -733,7 +733,7 @@ body {
 }
 
 .products-tagline {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-size: 1rem;
   line-height: 1.65;
   color: var(--color-text-secondary);
@@ -758,7 +758,7 @@ body {
   padding: 0.5rem 0;
   background: none;
   border: none;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.15em;
@@ -802,7 +802,7 @@ body {
 }
 
 .tab-index {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-bebas), "Bebas Neue", sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   color: var(--color-text-muted);
@@ -871,7 +871,7 @@ body {
 }
 
 .product-name {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-text-primary);
@@ -880,7 +880,7 @@ body {
 }
 
 .product-price {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-bebas), "Bebas Neue", sans-serif;
   font-size: 0.9375rem;
   color: var(--color-text-secondary);
   letter-spacing: 0.05em;
@@ -888,7 +888,7 @@ body {
 }
 
 .product-description {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-size: 0.75rem;
   line-height: 1.5;
   color: var(--color-text-muted);
@@ -899,7 +899,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -963,109 +963,109 @@ body {
    POPPINS UTILITIES
    ───────────────────────────────────────── */
 .poppins-thin {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 100;
   font-style: normal;
 }
 
 .poppins-extralight {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 200;
   font-style: normal;
 }
 
 .poppins-light {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 
 .poppins-regular {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 .poppins-medium {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
 .poppins-semibold {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
 }
 
 .poppins-bold {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
 .poppins-extrabold {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 800;
   font-style: normal;
 }
 
 .poppins-black {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 900;
   font-style: normal;
 }
 
 .poppins-thin-italic {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 100;
   font-style: italic;
 }
 
 .poppins-extralight-italic {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 200;
   font-style: italic;
 }
 
 .poppins-light-italic {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 300;
   font-style: italic;
 }
 
 .poppins-regular-italic {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 400;
   font-style: italic;
 }
 
 .poppins-medium-italic {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 500;
   font-style: italic;
 }
 
 .poppins-semibold-italic {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 600;
   font-style: italic;
 }
 
 .poppins-bold-italic {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 700;
   font-style: italic;
 }
 
 .poppins-extrabold-italic {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 800;
   font-style: italic;
 }
 
 .poppins-black-italic {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 900;
   font-style: italic;
 }
@@ -1095,7 +1095,7 @@ body {
 }
 
 .visit-headline {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-bebas), "Bebas Neue", sans-serif;
   font-size: clamp(4rem, 10vw, 8rem);
   line-height: 0.9;
   color: var(--color-text-primary);
@@ -1103,7 +1103,7 @@ body {
 }
 
 .visit-details {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--color-text-muted);
@@ -1185,7 +1185,7 @@ body {
   align-items: center;
   gap: 0.375rem;
   position: relative;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   color: var(--color-text-primary);
   font-size: 0.875rem;
   font-weight: 600;
@@ -1215,7 +1215,7 @@ body {
 }
 
 .footer-copyright {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
   color: var(--color-text-secondary);
   font-size: 0.75rem;
   letter-spacing: 0.05em;

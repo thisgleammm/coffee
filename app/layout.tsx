@@ -1,12 +1,31 @@
 import type { Metadata, Viewport } from "next";
+import { Poppins, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import ScrollRevealFallback from "./components/ScrollRevealFallback";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-poppins",
+});
+
+const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-bebas",
+});
 
 export const metadata: Metadata = {
   title: "Ruang Usaha — Coffee, Kos & Laundry",
   description:
     "Satu atap, tiga layanan. Coffee shop specialty, kos-kosan nyaman, dan laundry bersih. Ruang Usaha hadir untuk kebutuhan keseharian Anda.",
   metadataBase: new URL("https://satusatu.id"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Ruang Usaha — Coffee, Kos & Laundry",
     description:
@@ -14,6 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "id_ID",
     siteName: "Satu Satu",
+    url: "https://satusatu.id",
   },
   robots: {
     index: true,
@@ -27,13 +47,45 @@ export const viewport: Viewport = {
   themeColor: "#964233",
 };
 
+const LOCAL_BUSINESS_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Kost, Laundry dan Cafe Satu Satu",
+  description:
+    "Satu atap, tiga layanan. Coffee shop specialty, kos-kosan nyaman, dan laundry bersih.",
+  url: "https://satusatu.id",
+  telephone: "",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bekasi",
+    addressRegion: "Jawa Barat",
+    addressCountry: "ID",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -6.1143063,
+    longitude: 106.9381912,
+  },
+  sameAs: [
+    "https://www.instagram.com/kost.satusatu",
+  ],
+  image: "https://satusatu.id/images/og-cover.jpg",
+  "@id": "https://satusatu.id/#local-business",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="h-full">
+    <html lang="id" className={`h-full ${poppins.variable} ${bebasNeue.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSONLD) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
         <ScrollRevealFallback />

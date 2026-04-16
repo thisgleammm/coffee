@@ -18,10 +18,11 @@ export default function VisitUs() {
             MENUNGGU.
           </h2>
           <div className="visit-details">
-            <p className="visit-address">
+            <address className="visit-address" style={{ fontStyle: "normal" }}>
               <strong>Kost, Laundry &amp; Cafe<br />Satu Satu</strong><br /><br />
+              Bekasi, Jawa Barat, Indonesia<br /><br />
               Kunjungi kami langsung untuk merasakan kenyamanan kopi, wangi cucian yang segar, dan hangatnya suasana kost kami.
-            </p>
+            </address>
             <div className="visit-cta-wrapper">
               <a
                 href={MAPS_LINK}
